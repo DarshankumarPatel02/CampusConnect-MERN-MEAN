@@ -1,9 +1,33 @@
-# react-project-indie-coders
+# College Social Media App
 
-## Darshankumar Patel:- Connect Login and Register with Backend.All Backend Schema Designing.Make Posts Page where User can create,fetch and delete posts.Moreover,user can like and comments on post as well.However,for creating post with image and video it's using LocalStorage so it will display for time you are login but in-case you refresh or re-login the image and video will not be displayed as using LocalStorage
+This repository contains a College Social Media application implemented using both the MERN and MEAN stacks.
 
-## Vishesh Makwana :- Design Whole UI and styling.Made Some pages like Privacy Policy and Contact-us.Contact-Us page submit the data to the database and admin can view the data using admin credentials as admin-admin and perform delete operations on the issue that is solved.
+## Overview
 
-## Vishal Kumar :- Made Front-end Login & Register Page.
+- **Backend**: Built with Node.js, Express.js, and MongoDB using Mongoose for database management.
+- **Frontend**: 
+  - **MERN Stack**: Uses React.js for building the user interface.
+  - **MEAN Stack**: Uses Angular for building the user interface.
 
-## Anuj Goswami:- Created Posts search that will fetch data from database and will give the results and User Profile Functionality that includes user's details and it is connected with the database and can be updated and also editable.
+### Features
+
+- User management
+- Post creation, retrieval, updating, and deletion
+- Contact form handling
+- CORS support for cross-origin requests
+
+## Setup
+
+1. **Backend**: 
+   - Clone the repository
+   - Install dependencies
+   - Configure MongoDB connection
+   - Start the server
+
+2. **Frontend** (MERN or MEAN):
+   - Navigate to the front-end directory
+   - Install dependencies
+   - Run the application
+
+The backend server runs on `http://localhost:3200` and the frontend will be accessible at `http://localhost:3000` for MERN or `http://localhost:4200` for MEAN.
+
