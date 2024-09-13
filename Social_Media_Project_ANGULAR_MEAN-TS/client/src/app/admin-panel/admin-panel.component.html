@@ -1,0 +1,58 @@
+<body>
+    <div *ngIf="!loggedIn; else adminPanel">
+        <div class="contact-container">
+            <h1>Admin Panel</h1>
+            <h1>Login</h1>
+            <form (submit)="handleLogin()">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" />
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" />
+                </div>
+                <button type="submit" class="contact-btn">Login</button>
+                <div class="text-center mt-3">
+                    <a href="/login">User Login</a>
+                </div>
+                <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+            </form>
+        </div>
+    </div>
+</body>
+<ng-template #adminPanel>
+    <div class="container">
+        <h2>Admin Panel</h2>
+        <button class="contact-btn" (click)="handleLogout()">Logout</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="contacts; else noContacts">
+                <tr *ngFor="let contact of contacts">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.message }}</td>
+                    <td>
+                        <input type="checkbox" [checked]="selectedContacts.includes(contact._id)"
+                            (change)="handleSelect(contact._id)" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #noContacts>
+            <tr>
+                <td colspan="4">No contacts available.</td>
+            </tr>
+        </ng-template>
+        <button class="contact-btn" (click)="deleteSelectedContacts()" [disabled]="selectedContacts.length === 0">
+            Delete Selected Contacts
+        </button>
+    </div>
+</ng-template>

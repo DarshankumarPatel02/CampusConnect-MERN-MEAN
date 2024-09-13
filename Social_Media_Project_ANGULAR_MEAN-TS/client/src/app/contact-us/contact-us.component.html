@@ -1,0 +1,64 @@
+<body>
+  <div class="container contact-us">
+    <div class="row">
+      <!-- Left column for contact details -->
+      <div class="col-md-6">
+        <div class="contact-details">
+          <h1>Contact Details</h1>
+          <br>
+          <h4>Phone:</h4>
+          <p>+1-123-456-7890</p> <br>
+          <hr>
+          <br>
+          <h4>Email:</h4>
+          <p>contact@socialmedia.com</p> <br>
+          <hr>
+          <br>
+          <h4>Address:</h4>
+          <p>56th Street, North Side, NY, USA</p> <br>
+          <hr>
+  
+          <div class="social-media-icons">
+            <br>
+            <a href="#">
+              <img src="../../assets/fb-icon.png" alt="Facebook">
+            </a>
+            <a href="#">
+              <img src="../../assets/insta-icon.png" alt="Facebook">
+            </a>
+            <a href="#">
+              <img src="../../assets/twitter-icon.png" alt="Facebook">
+            </a>
+            <a href="#">
+              <img src="../../assets/linkedin-icon.png" alt="Facebook">
+            </a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Right column for the form -->
+      <div class="col-md-6">
+        <div class="contact-form">
+          <h1>Get in touch with Us</h1>
+          <br>
+          <form [formGroup]="contactForm" (ngSubmit)="handleSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" formControlName="message" rows="3"></textarea>
+            </div>
+            <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+          </form>
+          <div class="submission-message" *ngIf="submissionMessage">{{ submissionMessage }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

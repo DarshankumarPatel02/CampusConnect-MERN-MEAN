@@ -1,0 +1,76 @@
+<body>
+    <div class="container social-media-feed">
+        <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm" class="search-input" (input)="searchPosts()" />
+        <div class="post create-post">
+            <div class="user-profile">
+                <img src="assets/profilepic.png" alt="Profile" />
+                <p>Create a new post</p>
+            </div>
+            <textarea class="post-content" placeholder="What's on your mind?" [(ngModel)]="newPost"></textarea>
+            <div class="post-actions">
+                <input type="file" multiple (change)="handleFileInput($event)" />
+                <button class="create-post-btn" (click)="createPost()">Post</button>
+            </div>
+        </div>
+        <div *ngFor="let post of filteredPosts" class="post">
+            <div class="user-profile">
+                <img src="assets/profilepic.png" alt="Profile" />
+                <p>{{ post.username }}</p>
+            </div>
+            <hr />
+            <div class="post-content">
+                <p>{{ post.content.text }}</p>
+                <div class="post-images">
+                    <img *ngFor="let image of post.content.images" [src]="image" alt="Post Image"
+                        style="max-width: 626px; max-height: 417px; margin: 0 auto" />
+                </div>
+                <div class="post-videos">
+                    <video *ngFor="let video of post.content.videos" controls [src]="video"
+                        style="max-width: 626px; max-height: 417px; margin: 0 auto"></video>
+                </div>
+            </div>
+            <hr />
+            <div class="post-actions">
+                <button class="like-btn" (click)="updateLikesCount(post._id)">
+                    {{ post.like }} Likes
+                </button>
+                <button class="comment-btn" (click)="handleComment(post._id)">
+                    {{ post.comments.length }} Comments
+                </button>
+                <button *ngIf="username === post.username" class="delete-btn" (click)="deletePost(post._id)">
+                    Delete Post
+                </button>
+            </div>
+            <div class="comments-section" *ngIf="openCommentPostId === post._id">
+                <ul class="comment-list">
+                    <li
+                        *ngFor="let comment of post.comments | slice: 0:expandedComments.includes(post._id) ? undefined : 3">
+                        <div>
+                            {{ comment|json}}
+                            <!-- <span class="comment-username">{{ comment.username }}: </span>
+                            <span>{{ comment.comment }}</span> -->
+                        </div>
+                    </li>
+                </ul>
+                <button *ngIf="post.comments.length > 3 && !expandedComments.includes(post._id)"
+                    class="expand-comments-btn" (click)="expandComments(post._id)">
+                    View all comments
+                    <br />
+                </button>
+                <button *ngIf="expandedComments.includes(post._id)" class="collapse-comments-btn"
+                    (click)="collapseComments(post._id)">
+                    Latest comments
+                </button>
+                <textarea class="comment-input" placeholder="Write a comment..." [(ngModel)]="newComment"></textarea>
+                <div class="comment-actions">
+                    <button class="add-comment-btn" (click)="addComment()">
+                        Add Comment
+                    </button>
+                    <button class="cancel-comment-btn" (click)="closeComments()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

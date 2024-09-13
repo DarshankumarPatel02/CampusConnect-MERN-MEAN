@@ -1,0 +1,23 @@
+<body>
+    <div class="container profile" style="width: 500px;">
+        <h1>Edit Profile</h1>
+        <form (ngSubmit)="updateProfile()">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input name="updatedEmail" type="text" class="form-control" id="email" [(ngModel)]="updatedEmail" />
+            </div>
+    
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input name="updatedUsername" type="text" class="form-control" id="username" [(ngModel)]="updatedUsername" />
+            </div>
+            <button type="submit">Update Profile</button>
+        </form>
+    
+        <!-- Success message (displayed conditionally) -->
+        <div class="success-message" *ngIf="successMessage">Profile updated successfully!</div>
+    
+        <!-- Error message (displayed conditionally) -->
+        <div class="error-message" *ngIf="errorMessage">Error message goes here</div>
+    </div>
+</body>
