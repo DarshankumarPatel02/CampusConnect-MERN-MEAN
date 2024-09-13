@@ -1,0 +1,18 @@
+.text-left{
+    text-align: left;
+}
+h1{
+    text-align: left;
+}
+h2{
+    color: white;
+}
+p{
+    color: white;
+}
+.content{
+    backdrop-filter: blur(55px);
+    padding: 30px;
+    border: 1px solid white;
+    border-radius: 20px;
+}

@@ -1,0 +1,38 @@
+/* contactUs.css */
+
+.contact-us {
+  backdrop-filter: blur(55px);
+  padding: 50px;
+  border-radius: 20px;
+  text-align: left;
+  min-width: 900px;
+  color: white;
+  border: 1px solid white;
+  }
+  
+ .contact-form{
+  padding-top: 20px;
+ } 
+  .contact-details {
+    padding: 20px;
+    border-right: 1px solid white;
+  }
+  
+  .social-media-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: white;
+    font-size: 34px;
+  }
+  
+  .social-media-icons a:hover {
+    color: #007bff;
+  }
+  
+
+  @media (max-width: 768px) {
+    .contact-details {
+      margin-top: 20px;
+    }
+  }
+  

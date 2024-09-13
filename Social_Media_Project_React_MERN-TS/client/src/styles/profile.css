@@ -1,0 +1,22 @@
+/* profile.css */
+
+.profile {
+    backdrop-filter: blur(55px);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: left;
+    min-width: 900px;
+    color: white;
+    border: 1px solid white;
+  }
+  
+  .bio {
+    padding: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .profile {
+      margin-top: 20px;
+    }
+  }
+  
